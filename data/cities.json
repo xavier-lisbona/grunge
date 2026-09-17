@@ -2,5 +2,8 @@
   {"id":"seattle","name":"Seattle","country":"Estados Unidos"},
   {"id":"ellensburg","name":"Ellensburg","country":"Estados Unidos"},
   {"id":"cincinnati","name":"Cincinnati","country":"Estados Unidos"},
-  {"id":"los-angeles","name":"Los Ángeles","country":"Estados Unidos"}
+  {"id":"los-angeles","name":"Los Ángeles","country":"Estados Unidos"},
+  {"id":"portland","name":"Portland","country":"Estados Unidos"},
+  {"id":"aberdeen","name":"Aberdeen","country":"Estados Unidos"},
+  {"id":"tacoma","name":"Tacoma","country":"Estados Unidos"}
 ]

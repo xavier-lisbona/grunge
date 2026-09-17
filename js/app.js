@@ -21,6 +21,7 @@ function el(tag, attrs = {}, text = '') {
 function active() { return memberships; }
 function get(type, id) { return ({ city: cities, band: bands, person: people }[type] || []).find(x => x.id === id); }
 function key(type, id) { return type + ':' + id; }
+function cityRadius(id) { return 22 + Math.min(30, bands.filter(b => b.city === id).length * 3); }
 
 function context() {
   const ms = active();
@@ -86,8 +87,9 @@ function render() {
     const p = positions.get(key(n.type, n.id));
     const g = el('g', { class: 'node ' + n.type + '-node ' + (n.membershipStatus === 'former' ? 'former-member ' : '') +
       (selected && selected.type === n.type && selected.id === n.id ? 'selected' : '') });
-    g.append(el('circle', { cx: p.x, cy: p.y, r: n.type === 'city' ? 32 : n.type === 'band' ? 25 : 18 }));
-    const labelY = p.y + (n.type === 'city' ? 52 : n.type === 'band' ? 46 : 37);
+    const radius = n.type === 'city' ? cityRadius(n.id) : n.type === 'band' ? 25 : 18;
+    g.append(el('circle', { cx: p.x, cy: p.y, r: radius }));
+    const labelY = p.y + (n.type === 'city' ? radius + 20 : n.type === 'band' ? 46 : 37);
     g.append(el('text', { x: p.x, y: labelY, 'text-anchor': 'middle' }, n.name));
     if (n.type === 'band') g.append(el('text', { x: p.x, y: labelY + 17, 'text-anchor': 'middle', class: 'band-years' }, n.from + ' - ' + (n.to || 'Actualidad')));
     g.addEventListener('click', () => select(n));
