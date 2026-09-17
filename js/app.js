@@ -1,6 +1,6 @@
 const $ = s => document.querySelector(s);
 let people = [], bands = [], cities = [], memberships = [];
-let year = 1994, selected = null;
+let selected = null;
 const svg = $('#graph'), NS = 'http://www.w3.org/2000/svg';
 
 async function load() {
@@ -18,7 +18,7 @@ function el(tag, attrs = {}, text = '') {
   if (text) node.textContent = text;
   return node;
 }
-function active() { return memberships.filter(m => m.from <= year && m.to >= year); }
+function active() { return memberships; }
 function get(type, id) { return ({ city: cities, band: bands, person: people }[type] || []).find(x => x.id === id); }
 function key(type, id) { return type + ':' + id; }
 
@@ -56,7 +56,6 @@ function context() {
 }
 
 function render() {
-  $('#yearValue').textContent = year;
   const ms = active();
   $('#stats').textContent = cities.length + ' ciudades · ' + people.length + ' personas · ' + bands.length + ' bandas · ' + ms.length + ' relaciones';
   svg.innerHTML = '';
@@ -80,7 +79,9 @@ function render() {
     const g = el('g', { class: 'node ' + n.type + '-node ' +
       (selected && selected.type === n.type && selected.id === n.id ? 'selected' : '') });
     g.append(el('circle', { cx: p.x, cy: p.y, r: n.type === 'city' ? 32 : n.type === 'band' ? 25 : 18 }));
-    g.append(el('text', { x: p.x, y: p.y + (n.type === 'city' ? 52 : n.type === 'band' ? 46 : 37), 'text-anchor': 'middle' }, n.name));
+    const labelY = p.y + (n.type === 'city' ? 52 : n.type === 'band' ? 46 : 37);
+    g.append(el('text', { x: p.x, y: labelY, 'text-anchor': 'middle' }, n.name));
+    if (n.type === 'band') g.append(el('text', { x: p.x, y: labelY + 17, 'text-anchor': 'middle', class: 'band-years' }, n.from + ' - ' + (n.to || 'Actualidad')));
     g.addEventListener('click', () => select(n));
     svg.append(g);
   });
@@ -93,10 +94,10 @@ function renderDetails(node) {
   let html = '<strong>' + node.name + '</strong><br>';
   if (node.type === 'city') {
     const cityBands = bands.filter(b => b.city === node.id && ms.some(m => m.band === b.id));
-    html += 'Bandas activas en ' + year + '<br><br>' + (cityBands.map(b => '• ' + b.name).join('<br>') || 'No hay bandas en este año.');
+    html += 'Bandas de la ciudad<br><br>' + (cityBands.map(b => '• ' + b.name).join('<br>') || 'No hay bandas registradas.');
   } else if (node.type === 'band') {
     const members = ms.filter(m => m.band === node.id);
-    html += 'Miembros activos en ' + year + '<br><br>' + members.map(m => '• ' + (get('person', m.person)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
+    html += 'Miembros de la banda<br><br>' + members.map(m => '• ' + (get('person', m.person)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
   } else {
     const personMemberships = memberships.filter(m => m.person === node.id);
     html += 'Bandas en las que participó' + '<br><br>' + personMemberships.map(m => '• ' + (get('band', m.band)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
@@ -111,7 +112,6 @@ function renderResults() {
   $('#results').innerHTML = all.slice(0, 20).map(x => '<div class="result ' + x.type + '" data-type="' + x.type + '" data-id="' + x.id + '">' + x.name + '</div>').join('');
   $('#results').querySelectorAll('.result').forEach(e => e.addEventListener('click', () => select(get(e.dataset.type, e.dataset.id))));
 }
-$('#year').addEventListener('input', e => { year = Number(e.target.value); selected = null; render(); });
 $('#search').addEventListener('input', renderResults);
-$('#reset').addEventListener('click', () => { $('#search').value = ''; year = 1994; $('#year').value = year; selected = null; $('#details').textContent = 'Pulsa una ciudad para empezar.'; render(); });
+$('#reset').addEventListener('click', () => { $('#search').value = ''; selected = null; $('#details').textContent = 'Pulsa una ciudad para empezar.'; render(); });
 load().catch(err => { $('#details').textContent = 'No se pudieron cargar los datos: ' + err; });
