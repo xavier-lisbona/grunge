@@ -22,6 +22,12 @@ function active() { return memberships; }
 function get(type, id) { return ({ city: cities, band: bands, person: people }[type] || []).find(x => x.id === id); }
 function key(type, id) { return type + ':' + id; }
 function cityRadius(id) { return 22 + Math.min(30, bands.filter(b => b.city === id).length * 3); }
+function mostConnectedPerson() {
+  return people.reduce((leader, person) => {
+    const connections = memberships.filter(m => m.person === person.id).length;
+    return !leader || connections > leader.connections ? { ...person, connections } : leader;
+  }, null);
+}
 
 function context() {
   const ms = active();
@@ -58,7 +64,9 @@ function context() {
 
 function render() {
   const ms = active();
-  $('#stats').textContent = cities.length + ' ciudades · ' + people.length + ' personas · ' + bands.length + ' bandas · ' + ms.length + ' relaciones';
+  $('#stats').textContent = cities.length + ' cities · ' + people.length + ' people · ' + bands.length + ' bands · ' + ms.length + ' relationships';
+  const leader = mostConnectedPerson();
+  $('#tip').textContent = leader ? 'Tip: ' + leader.name + ' has the most connections (' + leader.connections + ' bands).' : '';
   svg.innerHTML = '';
   const view = context();
   const groups = {
@@ -91,7 +99,7 @@ function render() {
     g.append(el('circle', { cx: p.x, cy: p.y, r: radius }));
     const labelY = p.y + (n.type === 'city' ? radius + 20 : n.type === 'band' ? 46 : 37);
     g.append(el('text', { x: p.x, y: labelY, 'text-anchor': 'middle' }, n.name));
-    if (n.type === 'band') g.append(el('text', { x: p.x, y: labelY + 17, 'text-anchor': 'middle', class: 'band-years' }, n.from + ' - ' + (n.to || 'Actualidad')));
+    if (n.type === 'band') g.append(el('text', { x: p.x, y: labelY + 17, 'text-anchor': 'middle', class: 'band-years' }, n.from + ' - ' + (n.to || 'Present')));
     g.addEventListener('click', () => select(n));
     svg.append(g);
   });
@@ -104,24 +112,24 @@ function renderDetails(node) {
   let html = '<strong>' + node.name + '</strong><br>';
   if (node.type === 'city') {
     const cityBands = bands.filter(b => b.city === node.id && ms.some(m => m.band === b.id));
-    html += 'Bandas de la ciudad<br><br>' + (cityBands.map(b => '• ' + b.name).join('<br>') || 'No hay bandas registradas.');
+    html += 'Bands from this city<br><br>' + (cityBands.map(b => '• ' + b.name).join('<br>') || 'No bands recorded.');
   } else if (node.type === 'band') {
     const members = ms.filter(m => m.band === node.id);
-    html += 'Miembros de la banda<br><br>' + members.map(m => '<span class="member ' + (m.status === 'former' ? 'former-member' : '') + '">• ' + (get('person', m.person)?.name || '') + (m.role ? ' — ' + m.role : '') + (m.status === 'former' ? ' (exmiembro)' : '') + '</span>').join('<br>');
+    html += 'Band members<br><br>' + members.map(m => '<span class="member ' + (m.status === 'former' ? 'former-member' : '') + '">• ' + (get('person', m.person)?.name || '') + (m.role ? ' — ' + m.role : '') + (m.status === 'former' ? ' (former member)' : '') + '</span>').join('<br>');
   } else {
     const personMemberships = memberships.filter(m => m.person === node.id);
-    html += 'Bandas en las que participó' + '<br><br>' + personMemberships.map(m => '• ' + (get('band', m.band)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
+    html += 'Bands they played in' + '<br><br>' + personMemberships.map(m => '• ' + (get('band', m.band)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
   }
   $('#details').innerHTML = html;
 }
 function renderResults() {
   const q = $('#search').value.trim().toLowerCase();
-  if (!q) { $('#results').innerHTML = '<div class="result hint">Pulsa una ciudad para empezar.</div>'; return; }
+  if (!q) { $('#results').innerHTML = '<div class="result hint">Select a city to begin.</div>'; return; }
   const all = [...cities.map(x => ({ ...x, type: 'city' })), ...people.map(x => ({ ...x, type: 'person' })),
     ...bands.map(x => ({ ...x, type: 'band' }))].filter(x => x.name.toLowerCase().includes(q));
   $('#results').innerHTML = all.slice(0, 20).map(x => '<div class="result ' + x.type + '" data-type="' + x.type + '" data-id="' + x.id + '">' + x.name + '</div>').join('');
   $('#results').querySelectorAll('.result').forEach(e => e.addEventListener('click', () => select(get(e.dataset.type, e.dataset.id))));
 }
 $('#search').addEventListener('input', renderResults);
-$('#reset').addEventListener('click', () => { $('#search').value = ''; selected = null; $('#details').textContent = 'Pulsa una ciudad para empezar.'; render(); });
-load().catch(err => { $('#details').textContent = 'No se pudieron cargar los datos: ' + err; });
+$('#reset').addEventListener('click', () => { $('#search').value = ''; selected = null; $('#details').textContent = 'Select a city to begin.'; render(); });
+load().catch(err => { $('#details').textContent = 'Data could not be loaded: ' + err; });

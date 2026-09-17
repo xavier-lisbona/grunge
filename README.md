@@ -1,18 +1,18 @@
 # Grunge Network
 
-Ejemplo de página estática para GitHub Pages.
+Static GitHub Pages example.
 
-## Estructura
-- `index.html` — interfaz
-- `css/style.css` — estilos
-- `js/app.js` — lógica
-- `data/people.json` — personas
-- `data/bands.json` — bandas y ciudad de origen
-- `data/cities.json` — ciudades
-- `data/memberships.json` — relaciones persona↔banda
+## Structure
+- `index.html` — interface
+- `css/style.css` — styles
+- `js/app.js` — application logic
+- `data/people.json` — people
+- `data/bands.json` — bands and their cities of origin
+- `data/cities.json` — cities
+- `data/memberships.json` — person-to-band relationships
 
-El ejemplo usa solamente HTML/CSS/JavaScript y no necesita backend.
+The example uses only HTML, CSS, and JavaScript; it needs no backend.
 
-## Criterio de datos
+## Data criteria
 
-`current` indica que la persona permanece en la formación y `former` que la abandonó. La interfaz muestra los exmiembros en gris y cursiva. Los integrantes y fechas se han contrastado exclusivamente con las fichas de Wikipedia de cada banda.
+`current` indicates that a person remains in the lineup, while `former` indicates they left it. The interface displays former members in gray italics. Members and dates were checked against each band's Wikipedia entry.

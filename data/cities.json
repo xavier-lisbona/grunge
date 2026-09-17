@@ -1,9 +1,9 @@
 [
-  {"id":"seattle","name":"Seattle","country":"Estados Unidos"},
-  {"id":"ellensburg","name":"Ellensburg","country":"Estados Unidos"},
-  {"id":"cincinnati","name":"Cincinnati","country":"Estados Unidos"},
-  {"id":"los-angeles","name":"Los Ángeles","country":"Estados Unidos"},
-  {"id":"portland","name":"Portland","country":"Estados Unidos"},
-  {"id":"aberdeen","name":"Aberdeen","country":"Estados Unidos"},
-  {"id":"tacoma","name":"Tacoma","country":"Estados Unidos"}
+  {"id":"seattle","name":"Seattle","country":"United States"},
+  {"id":"ellensburg","name":"Ellensburg","country":"United States"},
+  {"id":"cincinnati","name":"Cincinnati","country":"United States"},
+  {"id":"los-angeles","name":"Los Angeles","country":"United States"},
+  {"id":"portland","name":"Portland","country":"United States"},
+  {"id":"aberdeen","name":"Aberdeen","country":"United States"},
+  {"id":"tacoma","name":"Tacoma","country":"United States"}
 ]
