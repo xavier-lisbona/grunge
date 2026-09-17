@@ -38,7 +38,7 @@ function context() {
     const band = get('band', selected.id);
     return {
       nodes: [{ ...get('city', band.city), type: 'city' }, { ...band, type: 'band' },
-        ...bandMembers.map(m => ({ ...get('person', m.person), type: 'person' }))],
+        ...bandMembers.map(m => ({ ...get('person', m.person), type: 'person', membershipStatus: m.status }))],
       edges: [{ from: key('city', band.city), to: key('band', band.id) },
         ...bandMembers.map(m => ({ from: key('band', selected.id), to: key('person', m.person) }))]
     };
@@ -76,7 +76,7 @@ function render() {
   });
   view.nodes.forEach(n => {
     const p = positions.get(key(n.type, n.id));
-    const g = el('g', { class: 'node ' + n.type + '-node ' +
+    const g = el('g', { class: 'node ' + n.type + '-node ' + (n.membershipStatus === 'former' ? 'former-member ' : '') +
       (selected && selected.type === n.type && selected.id === n.id ? 'selected' : '') });
     g.append(el('circle', { cx: p.x, cy: p.y, r: n.type === 'city' ? 32 : n.type === 'band' ? 25 : 18 }));
     const labelY = p.y + (n.type === 'city' ? 52 : n.type === 'band' ? 46 : 37);
@@ -97,7 +97,7 @@ function renderDetails(node) {
     html += 'Bandas de la ciudad<br><br>' + (cityBands.map(b => '• ' + b.name).join('<br>') || 'No hay bandas registradas.');
   } else if (node.type === 'band') {
     const members = ms.filter(m => m.band === node.id);
-    html += 'Miembros de la banda<br><br>' + members.map(m => '• ' + (get('person', m.person)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
+    html += 'Miembros de la banda<br><br>' + members.map(m => '<span class="member ' + (m.status === 'former' ? 'former-member' : '') + '">• ' + (get('person', m.person)?.name || '') + (m.role ? ' — ' + m.role : '') + (m.status === 'former' ? ' (exmiembro)' : '') + '</span>').join('<br>');
   } else {
     const personMemberships = memberships.filter(m => m.person === node.id);
     html += 'Bandas en las que participó' + '<br><br>' + personMemberships.map(m => '• ' + (get('band', m.band)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');

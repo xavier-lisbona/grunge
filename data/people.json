@@ -15,5 +15,20 @@
   {"id":"greg-gilmore","name":"Greg Gilmore"},
   {"id":"alex-vincent","name":"Alex Vincent"},
   {"id":"john-baker-saunders","name":"John Baker Saunders"},
-  {"id":"barrett-martin","name":"Barrett Martin"}
+  {"id":"barrett-martin","name":"Barrett Martin"},
+  {"id":"hiro-yamamoto","name":"Hiro Yamamoto"},
+  {"id":"scott-sundquist","name":"Scott Sundquist"},
+  {"id":"jason-everman","name":"Jason Everman"},
+  {"id":"dave-krusen","name":"Dave Krusen"},
+  {"id":"matt-chamberlain","name":"Matt Chamberlain"},
+  {"id":"dave-abbruzzese","name":"Dave Abbruzzese"},
+  {"id":"jack-irons","name":"Jack Irons"},
+  {"id":"jerry-cantrell","name":"Jerry Cantrell"},
+  {"id":"sean-kinney","name":"Sean Kinney"},
+  {"id":"mike-inez","name":"Mike Inez"},
+  {"id":"mike-starr","name":"Mike Starr"},
+  {"id":"dan-peters","name":"Dan Peters"},
+  {"id":"matt-lukin","name":"Matt Lukin"},
+  {"id":"regan-hagar","name":"Regan Hagar"},
+  {"id":"mark-lanegan","name":"Mark Lanegan"}
 ]
