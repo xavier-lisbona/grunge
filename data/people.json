@@ -71,5 +71,20 @@
   {"id":"john-atkins","name":"John Atkins"},
   {"id":"bob-bulgrien","name":"Bob Bulgrien"},
   {"id":"alan-cage","name":"Alan Cage"},
-  {"id":"jesse-fox","name":"Jesse Fox"}
+  {"id":"jesse-fox","name":"Jesse Fox"},
+  {"id":"dan-hoerner","name":"Dan Hoerner"},
+  {"id":"william-goldsmith","name":"William Goldsmith"},
+  {"id":"jeremy-enigk","name":"Jeremy Enigk"},
+  {"id":"greg-suran","name":"Greg Suran"},
+  {"id":"chris-jordan","name":"Chris Jordan"},
+  {"id":"nate-mendel","name":"Nate Mendel"},
+  {"id":"jeff-palmer","name":"Jeff Palmer"},
+  {"id":"joe-skyward","name":"Joe Skyward"},
+  {"id":"pat-smear","name":"Pat Smear"},
+  {"id":"chris-shiflett","name":"Chris Shiflett"},
+  {"id":"rami-jaffee","name":"Rami Jaffee"},
+  {"id":"ilan-rubin","name":"Ilan Rubin"},
+  {"id":"franz-stahl","name":"Franz Stahl"},
+  {"id":"taylor-hawkins","name":"Taylor Hawkins"},
+  {"id":"josh-freese","name":"Josh Freese"}
 ]

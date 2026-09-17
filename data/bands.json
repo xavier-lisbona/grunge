@@ -103,5 +103,19 @@
     "city": "tacoma",
     "from": 1989,
     "to": 2014
+  },
+  {
+    "id": "sunny-day-real-estate",
+    "name": "Sunny Day Real Estate",
+    "city": "seattle",
+    "from": 1992,
+    "to": null
+  },
+  {
+    "id": "foo-fighters",
+    "name": "Foo Fighters",
+    "city": "seattle",
+    "from": 1994,
+    "to": null
   }
 ]
