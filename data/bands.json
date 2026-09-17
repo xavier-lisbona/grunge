@@ -54,5 +54,26 @@
     "city": "seattle",
     "from": 1994,
     "to": 1995
+  },
+  {
+    "id": "afghan-whigs",
+    "name": "The Afghan Whigs",
+    "city": "cincinnati",
+    "from": 1986,
+    "to": null
+  },
+  {
+    "id": "screaming-trees",
+    "name": "Screaming Trees",
+    "city": "ellensburg",
+    "from": 1984,
+    "to": 2000
+  },
+  {
+    "id": "gutter-twins",
+    "name": "The Gutter Twins",
+    "city": "los-angeles",
+    "from": 2003,
+    "to": 2011
   }
 ]

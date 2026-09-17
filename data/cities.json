@@ -1,1 +1,6 @@
-[{"id":"seattle","name":"Seattle","country":"Estados Unidos"}]
+[
+  {"id":"seattle","name":"Seattle","country":"Estados Unidos"},
+  {"id":"ellensburg","name":"Ellensburg","country":"Estados Unidos"},
+  {"id":"cincinnati","name":"Cincinnati","country":"Estados Unidos"},
+  {"id":"los-angeles","name":"Los Ángeles","country":"Estados Unidos"}
+]

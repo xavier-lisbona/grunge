@@ -65,10 +65,18 @@ function render() {
     band: view.nodes.filter(n => n.type === 'band'),
     person: view.nodes.filter(n => n.type === 'person')
   };
+  const bandRows = Math.ceil(groups.band.length / 4);
+  const personStart = groups.band.length ? 200 + bandRows * 130 : 210;
+  const graphHeight = Math.max(600,
+    120 + groups.city.length * 120,
+    200 + bandRows * 130,
+    personStart + Math.ceil(groups.person.length / 6) * 70 + 50);
+  svg.setAttribute('viewBox', '0 0 900 ' + graphHeight);
+  svg.style.minHeight = graphHeight + 'px';
   const positions = new Map();
   groups.city.forEach((n, i) => positions.set(key('city', n.id), { x: 450, y: 90 + i * 120 }));
-  groups.band.forEach((n, i) => positions.set(key('band', n.id), { x: 170 + (i % 4) * 200, y: 300 + Math.floor(i / 4) * 120 }));
-  groups.person.forEach((n, i) => positions.set(key('person', n.id), { x: 110 + (i % 6) * 140, y: 530 + Math.floor(i / 6) * 45 }));
+  groups.band.forEach((n, i) => positions.set(key('band', n.id), { x: 170 + (i % 4) * 200, y: 200 + Math.floor(i / 4) * 130 }));
+  groups.person.forEach((n, i) => positions.set(key('person', n.id), { x: 110 + (i % 6) * 140, y: personStart + Math.floor(i / 6) * 70 }));
 
   view.edges.forEach(edge => {
     const a = positions.get(edge.from), b = positions.get(edge.to);
