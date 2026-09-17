@@ -1,27 +1,10 @@
 [
-  {
-    "id": "soundgarden",
-    "name": "Soundgarden",
-    "city": "seattle"
-  },
-  {
-    "id": "temple-of-the-dog",
-    "name": "Temple of the Dog",
-    "city": "seattle"
-  },
-  {
-    "id": "pearl-jam",
-    "name": "Pearl Jam",
-    "city": "seattle"
-  },
-  {
-    "id": "alice-in-chains",
-    "name": "Alice in Chains",
-    "city": "seattle"
-  },
-  {
-    "id": "mudhoney",
-    "name": "Mudhoney",
-    "city": "seattle"
-  }
+  {"id":"soundgarden","name":"Soundgarden","city":"seattle"},
+  {"id":"temple-of-the-dog","name":"Temple of the Dog","city":"seattle"},
+  {"id":"pearl-jam","name":"Pearl Jam","city":"seattle"},
+  {"id":"alice-in-chains","name":"Alice in Chains","city":"seattle"},
+  {"id":"mudhoney","name":"Mudhoney","city":"seattle"},
+  {"id":"mother-love-bone","name":"Mother Love Bone","city":"seattle"},
+  {"id":"green-river","name":"Green River","city":"seattle"},
+  {"id":"mad-season","name":"Mad Season","city":"seattle"}
 ]

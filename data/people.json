@@ -1,46 +1,19 @@
 [
-  {
-    "id": "chris-cornell",
-    "name": "Chris Cornell"
-  },
-  {
-    "id": "kim-thayil",
-    "name": "Kim Thayil"
-  },
-  {
-    "id": "ben-shepherd",
-    "name": "Ben Shepherd"
-  },
-  {
-    "id": "matt-cameron",
-    "name": "Matt Cameron"
-  },
-  {
-    "id": "eddie-vedder",
-    "name": "Eddie Vedder"
-  },
-  {
-    "id": "jeff-ament",
-    "name": "Jeff Ament"
-  },
-  {
-    "id": "stone-gossard",
-    "name": "Stone Gossard"
-  },
-  {
-    "id": "mike-mccready",
-    "name": "Mike McCready"
-  },
-  {
-    "id": "layne-staley",
-    "name": "Layne Staley"
-  },
-  {
-    "id": "mark-arm",
-    "name": "Mark Arm"
-  },
-  {
-    "id": "steve-turner",
-    "name": "Steve Turner"
-  }
+  {"id":"chris-cornell","name":"Chris Cornell"},
+  {"id":"kim-thayil","name":"Kim Thayil"},
+  {"id":"ben-shepherd","name":"Ben Shepherd"},
+  {"id":"matt-cameron","name":"Matt Cameron"},
+  {"id":"eddie-vedder","name":"Eddie Vedder"},
+  {"id":"jeff-ament","name":"Jeff Ament"},
+  {"id":"stone-gossard","name":"Stone Gossard"},
+  {"id":"mike-mccready","name":"Mike McCready"},
+  {"id":"layne-staley","name":"Layne Staley"},
+  {"id":"mark-arm","name":"Mark Arm"},
+  {"id":"steve-turner","name":"Steve Turner"},
+  {"id":"andrew-wood","name":"Andrew Wood"},
+  {"id":"bruce-fairweather","name":"Bruce Fairweather"},
+  {"id":"greg-gilmore","name":"Greg Gilmore"},
+  {"id":"alex-vincent","name":"Alex Vincent"},
+  {"id":"john-baker-saunders","name":"John Baker Saunders"},
+  {"id":"barrett-martin","name":"Barrett Martin"}
 ]

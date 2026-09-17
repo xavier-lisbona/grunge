@@ -1,122 +1,33 @@
 [
-  {
-    "person": "chris-cornell",
-    "band": "soundgarden",
-    "from": 1988,
-    "to": 1998,
-    "status": "current",
-    "role": "vocals / guitar"
-  },
-  {
-    "person": "kim-thayil",
-    "band": "soundgarden",
-    "from": 1988,
-    "to": 1998,
-    "status": "current",
-    "role": "guitar"
-  },
-  {
-    "person": "ben-shepherd",
-    "band": "soundgarden",
-    "from": 1990,
-    "to": 1998,
-    "status": "current",
-    "role": "bass"
-  },
-  {
-    "person": "matt-cameron",
-    "band": "soundgarden",
-    "from": 1988,
-    "to": 1998,
-    "status": "current",
-    "role": "drums"
-  },
-  {
-    "person": "chris-cornell",
-    "band": "temple-of-the-dog",
-    "from": 1990,
-    "to": 1991,
-    "status": "former",
-    "role": "vocals / guitar"
-  },
-  {
-    "person": "eddie-vedder",
-    "band": "temple-of-the-dog",
-    "from": 1990,
-    "to": 1991,
-    "status": "former",
-    "role": "vocals"
-  },
-  {
-    "person": "jeff-ament",
-    "band": "temple-of-the-dog",
-    "from": 1990,
-    "to": 1991,
-    "status": "former",
-    "role": "bass"
-  },
-  {
-    "person": "stone-gossard",
-    "band": "temple-of-the-dog",
-    "from": 1990,
-    "to": 1991,
-    "status": "former",
-    "role": "guitar"
-  },
-  {
-    "person": "eddie-vedder",
-    "band": "pearl-jam",
-    "from": 1990,
-    "to": 1998,
-    "status": "current",
-    "role": "vocals"
-  },
-  {
-    "person": "jeff-ament",
-    "band": "pearl-jam",
-    "from": 1990,
-    "to": 1998,
-    "status": "current",
-    "role": "bass"
-  },
-  {
-    "person": "stone-gossard",
-    "band": "pearl-jam",
-    "from": 1990,
-    "to": 1998,
-    "status": "current",
-    "role": "guitar"
-  },
-  {
-    "person": "mike-mccready",
-    "band": "pearl-jam",
-    "from": 1990,
-    "to": 1998,
-    "status": "current",
-    "role": "guitar"
-  },
-  {
-    "person": "layne-staley",
-    "band": "alice-in-chains",
-    "from": 1988,
-    "to": 1998,
-    "status": "current",
-    "role": "vocals"
-  },
-  {
-    "person": "mark-arm",
-    "band": "mudhoney",
-    "from": 1988,
-    "to": 1998,
-    "status": "current",
-    "role": "vocals / guitar"
-  },
-  {
-    "person": "steve-turner",
-    "band": "mudhoney",
-    "from": 1988,
-    "to": 1998,
-    "status": "current",
-    "role": "guitar"
-  }
+  {"person":"chris-cornell","band":"soundgarden","from":1988,"to":1997,"status":"current","role":"vocals / guitar"},
+  {"person":"kim-thayil","band":"soundgarden","from":1988,"to":1997,"status":"current","role":"guitar"},
+  {"person":"ben-shepherd","band":"soundgarden","from":1990,"to":1997,"status":"current","role":"bass"},
+  {"person":"matt-cameron","band":"soundgarden","from":1988,"to":1997,"status":"current","role":"drums"},
+  {"person":"chris-cornell","band":"temple-of-the-dog","from":1990,"to":1991,"status":"former","role":"vocals / guitar"},
+  {"person":"eddie-vedder","band":"temple-of-the-dog","from":1990,"to":1991,"status":"former","role":"vocals"},
+  {"person":"jeff-ament","band":"temple-of-the-dog","from":1990,"to":1991,"status":"former","role":"bass"},
+  {"person":"stone-gossard","band":"temple-of-the-dog","from":1990,"to":1991,"status":"former","role":"guitar"},
+  {"person":"eddie-vedder","band":"pearl-jam","from":1990,"to":1998,"status":"current","role":"vocals"},
+  {"person":"jeff-ament","band":"pearl-jam","from":1990,"to":1998,"status":"current","role":"bass"},
+  {"person":"stone-gossard","band":"pearl-jam","from":1990,"to":1998,"status":"current","role":"guitar"},
+  {"person":"mike-mccready","band":"pearl-jam","from":1990,"to":1998,"status":"current","role":"guitar"},
+  {"person":"matt-cameron","band":"pearl-jam","from":1998,"to":1998,"status":"current","role":"drums"},
+  {"person":"layne-staley","band":"alice-in-chains","from":1988,"to":1998,"status":"current","role":"vocals"},
+  {"person":"mark-arm","band":"mudhoney","from":1988,"to":1998,"status":"current","role":"vocals / guitar"},
+  {"person":"steve-turner","band":"mudhoney","from":1988,"to":1998,"status":"current","role":"guitar"},
+  {"person":"mark-arm","band":"green-river","from":1988,"to":1988,"status":"former","role":"vocals"},
+  {"person":"steve-turner","band":"green-river","from":1988,"to":1988,"status":"former","role":"guitar"},
+  {"person":"jeff-ament","band":"green-river","from":1988,"to":1988,"status":"former","role":"bass"},
+  {"person":"stone-gossard","band":"green-river","from":1988,"to":1988,"status":"former","role":"guitar"},
+  {"person":"bruce-fairweather","band":"green-river","from":1988,"to":1988,"status":"former","role":"guitar"},
+  {"person":"alex-vincent","band":"green-river","from":1988,"to":1988,"status":"former","role":"drums"},
+  {"person":"andrew-wood","band":"mother-love-bone","from":1988,"to":1990,"status":"former","role":"vocals"},
+  {"person":"stone-gossard","band":"mother-love-bone","from":1988,"to":1990,"status":"former","role":"guitar"},
+  {"person":"jeff-ament","band":"mother-love-bone","from":1988,"to":1990,"status":"former","role":"bass"},
+  {"person":"bruce-fairweather","band":"mother-love-bone","from":1988,"to":1990,"status":"former","role":"guitar"},
+  {"person":"greg-gilmore","band":"mother-love-bone","from":1988,"to":1990,"status":"former","role":"drums"},
+  {"person":"layne-staley","band":"mad-season","from":1994,"to":1995,"status":"former","role":"vocals"},
+  {"person":"mike-mccready","band":"mad-season","from":1994,"to":1995,"status":"former","role":"guitar"},
+  {"person":"john-baker-saunders","band":"mad-season","from":1994,"to":1995,"status":"former","role":"bass"},
+  {"person":"barrett-martin","band":"mad-season","from":1994,"to":1995,"status":"former","role":"drums"}
 ]
