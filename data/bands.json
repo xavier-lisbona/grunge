@@ -1,22 +1,27 @@
 [
   {
     "id": "soundgarden",
-    "name": "Soundgarden"
+    "name": "Soundgarden",
+    "city": "seattle"
   },
   {
     "id": "temple-of-the-dog",
-    "name": "Temple of the Dog"
+    "name": "Temple of the Dog",
+    "city": "seattle"
   },
   {
     "id": "pearl-jam",
-    "name": "Pearl Jam"
+    "name": "Pearl Jam",
+    "city": "seattle"
   },
   {
     "id": "alice-in-chains",
-    "name": "Alice in Chains"
+    "name": "Alice in Chains",
+    "city": "seattle"
   },
   {
     "id": "mudhoney",
-    "name": "Mudhoney"
+    "name": "Mudhoney",
+    "city": "seattle"
   }
 ]

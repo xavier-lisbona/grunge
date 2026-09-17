@@ -1,62 +1,117 @@
-const $=s=>document.querySelector(s);
-let people=[],bands=[],memberships=[],year=1994,selected=null;
-const svg=$('#graph'), NS='http://www.w3.org/2000/svg';
+const $ = s => document.querySelector(s);
+let people = [], bands = [], cities = [], memberships = [];
+let year = 1994, selected = null;
+const svg = $('#graph'), NS = 'http://www.w3.org/2000/svg';
 
-async function load(){
-  [people,bands,memberships]=await Promise.all([
-    fetch('data/people.json').then(r=>r.json()),
-    fetch('data/bands.json').then(r=>r.json()),
-    fetch('data/memberships.json').then(r=>r.json())
+async function load() {
+  [people, bands, cities, memberships] = await Promise.all([
+    fetch('data/people.json').then(r => r.json()),
+    fetch('data/bands.json').then(r => r.json()),
+    fetch('data/cities.json').then(r => r.json()),
+    fetch('data/memberships.json').then(r => r.json())
   ]);
   render();
 }
-function el(tag,attrs={},text=''){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);if(text)e.textContent=text;return e}
-function active(){return memberships.filter(m=>m.from<=year && m.to>=year)}
-function render(){
-  $('#yearValue').textContent=year;
-  const ms=active();
-  $('#stats').textContent=`${people.length} personas · ${bands.length} bandas · ${ms.length} relaciones`;
-  svg.innerHTML='';
-  const nodes=[
-    ...people.filter(p=>ms.some(m=>m.person===p.id)).map((p,i)=>({...p,type:'person',x:150+(i%4)*185,y:80+Math.floor(i/4)*145})),
-    ...bands.filter(b=>ms.some(m=>m.band===b.id)).map((b,i)=>({...b,type:'band',x:130+(i%3)*310,y:520-(i%2)*160}))
-  ];
-  const byId=new Map(nodes.map(n=>[n.id,n]));
-  ms.forEach(m=>{
-    const a=byId.get(m.person),b=byId.get(m.band);if(!a||!b)return;
-    const line=el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,class:'edge'});svg.append(line);
+function el(tag, attrs = {}, text = '') {
+  const node = document.createElementNS(NS, tag);
+  Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+  if (text) node.textContent = text;
+  return node;
+}
+function active() { return memberships.filter(m => m.from <= year && m.to >= year); }
+function get(type, id) { return ({ city: cities, band: bands, person: people }[type] || []).find(x => x.id === id); }
+function key(type, id) { return type + ':' + id; }
+
+function context() {
+  const ms = active();
+  if (!selected) return { nodes: cities.map(c => ({ ...c, type: 'city' })), edges: [] };
+
+  if (selected.type === 'city') {
+    const cityBands = bands.filter(b => b.city === selected.id && ms.some(m => m.band === b.id));
+    return {
+      nodes: [{ ...get('city', selected.id), type: 'city' }, ...cityBands.map(b => ({ ...b, type: 'band' }))],
+      edges: cityBands.map(b => ({ from: key('city', selected.id), to: key('band', b.id) }))
+    };
+  }
+  if (selected.type === 'band') {
+    const bandMembers = ms.filter(m => m.band === selected.id);
+    const band = get('band', selected.id);
+    return {
+      nodes: [{ ...get('city', band.city), type: 'city' }, { ...band, type: 'band' },
+        ...bandMembers.map(m => ({ ...get('person', m.person), type: 'person' }))],
+      edges: [{ from: key('city', band.city), to: key('band', band.id) },
+        ...bandMembers.map(m => ({ from: key('band', selected.id), to: key('person', m.person) }))]
+    };
+  }
+
+  const personBands = memberships.filter(m => m.person === selected.id).map(m => get('band', m.band));
+  const personCities = [...new Set(personBands.map(b => b.city))].map(id => get('city', id));
+  return {
+    nodes: [...personCities.map(c => ({ ...c, type: 'city' })), ...personBands.map(b => ({ ...b, type: 'band' })),
+      { ...get('person', selected.id), type: 'person' }],
+    edges: [...personCities.flatMap(c => personBands.filter(b => b.city === c.id)
+      .map(b => ({ from: key('city', c.id), to: key('band', b.id) }))),
+      ...personBands.map(b => ({ from: key('person', selected.id), to: key('band', b.id) }))]
+  };
+}
+
+function render() {
+  $('#yearValue').textContent = year;
+  const ms = active();
+  $('#stats').textContent = cities.length + ' ciudades · ' + people.length + ' personas · ' + bands.length + ' bandas · ' + ms.length + ' relaciones';
+  svg.innerHTML = '';
+  const view = context();
+  const groups = {
+    city: view.nodes.filter(n => n.type === 'city'),
+    band: view.nodes.filter(n => n.type === 'band'),
+    person: view.nodes.filter(n => n.type === 'person')
+  };
+  const positions = new Map();
+  groups.city.forEach((n, i) => positions.set(key('city', n.id), { x: 450, y: 90 + i * 120 }));
+  groups.band.forEach((n, i) => positions.set(key('band', n.id), { x: 170 + (i % 4) * 200, y: 300 + Math.floor(i / 4) * 120 }));
+  groups.person.forEach((n, i) => positions.set(key('person', n.id), { x: 110 + (i % 6) * 140, y: 530 + Math.floor(i / 6) * 45 }));
+
+  view.edges.forEach(edge => {
+    const a = positions.get(edge.from), b = positions.get(edge.to);
+    if (a && b) svg.append(el('line', { x1: a.x, y1: a.y, x2: b.x, y2: b.y, class: 'edge' }));
   });
-  nodes.forEach(n=>{
-    const g=el('g',{class:`node ${n.type}-node ${selected===n.id?'selected':''}`});
-    const c=el('circle',{cx:n.x,cy:n.y,r:n.type==='band'?25:18});
-    g.append(c,el('text',{x:n.x,y:n.y+(n.type==='band'?48:38),'text-anchor':'middle'},n.name));
-    g.addEventListener('click',()=>select(n));
+  view.nodes.forEach(n => {
+    const p = positions.get(key(n.type, n.id));
+    const g = el('g', { class: 'node ' + n.type + '-node ' +
+      (selected && selected.type === n.type && selected.id === n.id ? 'selected' : '') });
+    g.append(el('circle', { cx: p.x, cy: p.y, r: n.type === 'city' ? 32 : n.type === 'band' ? 25 : 18 }));
+    g.append(el('text', { x: p.x, y: p.y + (n.type === 'city' ? 52 : n.type === 'band' ? 46 : 37), 'text-anchor': 'middle' }, n.name));
+    g.addEventListener('click', () => select(n));
     svg.append(g);
   });
   renderResults();
 }
-function select(n){
-  selected=n.id;
-  const ms=active().filter(m=>m.person===n.id||m.band===n.id);
-  let html=`<strong>${n.name}</strong><br>${n.type==='person'?'Bandas activas en '+year:'Miembros activos en '+year}<br><br>`;
-  ms.forEach(m=>{
-    const other=n.type==='person'?bands.find(b=>b.id===m.band):people.find(p=>p.id===m.person);
-    html+=`• ${other?.name||''}${m.role?` — ${m.role}`:''}<br>`;
-  });
-  $('#details').innerHTML=html;
-  render();
+
+function select(node) { selected = { type: node.type, id: node.id }; renderDetails(node); render(); }
+function renderDetails(node) {
+  const ms = active();
+  let html = '<strong>' + node.name + '</strong><br>';
+  if (node.type === 'city') {
+    const cityBands = bands.filter(b => b.city === node.id && ms.some(m => m.band === b.id));
+    html += 'Bandas activas en ' + year + '<br><br>' + (cityBands.map(b => '• ' + b.name).join('<br>') || 'No hay bandas en este año.');
+  } else if (node.type === 'band') {
+    const members = ms.filter(m => m.band === node.id);
+    html += 'Miembros activos en ' + year + '<br><br>' + members.map(m => '• ' + (get('person', m.person)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
+  } else {
+    const personMemberships = memberships.filter(m => m.person === node.id);
+    html += 'Bandas en las que participó' + '<br><br>' + personMemberships.map(m => '• ' + (get('band', m.band)?.name || '') + (m.role ? ' — ' + m.role : '')).join('<br>');
+  }
+  $('#details').innerHTML = html;
 }
-function renderResults(){
-  const q=$('#search').value.trim().toLowerCase();
-  if(!q){$('#results').innerHTML='<div class="result band">Pulsa un nodo del grafo.</div>';return}
-  const all=[...people.map(x=>({...x,type:'person'})),...bands.map(x=>({...x,type:'band'}))]
-    .filter(x=>x.name.toLowerCase().includes(q));
-  $('#results').innerHTML=all.slice(0,20).map(x=>`<div class="result ${x.type}" data-id="${x.id}">${x.name}</div>`).join('');
-  $('#results').querySelectorAll('.result').forEach(e=>e.addEventListener('click',()=>{
-    const x=all.find(a=>a.id===e.dataset.id);if(x)select(x);
-  }));
+function renderResults() {
+  const q = $('#search').value.trim().toLowerCase();
+  if (!q) { $('#results').innerHTML = '<div class="result hint">Pulsa una ciudad para empezar.</div>'; return; }
+  const all = [...cities.map(x => ({ ...x, type: 'city' })), ...people.map(x => ({ ...x, type: 'person' })),
+    ...bands.map(x => ({ ...x, type: 'band' }))].filter(x => x.name.toLowerCase().includes(q));
+  $('#results').innerHTML = all.slice(0, 20).map(x => '<div class="result ' + x.type + '" data-type="' + x.type + '" data-id="' + x.id + '">' + x.name + '</div>').join('');
+  $('#results').querySelectorAll('.result').forEach(e => e.addEventListener('click', () => select(get(e.dataset.type, e.dataset.id))));
 }
-$('#year').addEventListener('input',e=>{year=Number(e.target.value);selected=null;render()});
-$('#search').addEventListener('input',renderResults);
-$('#reset').addEventListener('click',()=>{$('#search').value='';year=1994;$('#year').value=year;selected=null;render()});
-load().catch(err=>{$('#details').textContent='No se pudieron cargar los datos: '+err});
+$('#year').addEventListener('input', e => { year = Number(e.target.value); selected = null; render(); });
+$('#search').addEventListener('input', renderResults);
+$('#reset').addEventListener('click', () => { $('#search').value = ''; year = 1994; $('#year').value = year; selected = null; $('#details').textContent = 'Pulsa una ciudad para empezar.'; render(); });
+load().catch(err => { $('#details').textContent = 'No se pudieron cargar los datos: ' + err; });
