@@ -6,4 +6,6 @@
   {"id":"portland","name":"Portland","country":"United States"},
   {"id":"aberdeen","name":"Aberdeen","country":"United States"},
   {"id":"tacoma","name":"Tacoma","country":"United States"}
+,
+  {"id":"glendale","name":"Glendale","country":"Estados Unidos"}
 ]

@@ -118,4 +118,7 @@
     "from": 1994,
     "to": null
   }
+,
+  {"id":"brad","name":"Brad","city":"seattle","from":1992,"to":null,"source":"https://en.wikipedia.org/wiki/Brad_(band)"},
+  {"id":"audioslave","name":"Audioslave","city":"glendale","from":2001,"to":2007,"reunion":2017,"source":"https://en.wikipedia.org/wiki/Audioslave"}
 ]

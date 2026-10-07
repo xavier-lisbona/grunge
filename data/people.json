@@ -87,4 +87,13 @@
   {"id":"franz-stahl","name":"Franz Stahl"},
   {"id":"taylor-hawkins","name":"Taylor Hawkins"},
   {"id":"josh-freese","name":"Josh Freese"}
+,
+  {"id":"shawn-smith","name":"Shawn Smith"},
+  {"id":"jeremy-toback","name":"Jeremy Toback"},
+  {"id":"mike-berg","name":"Mike Berg"},
+  {"id":"keith-lowe","name":"Keith Lowe"},
+  {"id":"happy-chichester","name":"Happy Chichester"},
+  {"id":"tom-morello","name":"Tom Morello"},
+  {"id":"tim-commerford","name":"Tim Commerford"},
+  {"id":"brad-wilk","name":"Brad Wilk"}
 ]
