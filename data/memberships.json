@@ -113,15 +113,15 @@
   {"person":"taylor-hawkins","band":"foo-fighters","from":1997,"to":2022,"status":"former","role":"drums"},
   {"person":"josh-freese","band":"foo-fighters","from":2023,"to":2025,"status":"former","role":"drums"}
 ,
-  {"person":"stone-gossard","band":"brad","from":1992,"to":null,"status":"current","role":"guitarra"},
-  {"person":"regan-hagar","band":"brad","from":1992,"to":null,"status":"current","role":"batería"},
-  {"person":"shawn-smith","band":"brad","from":1992,"to":2019,"status":"former","role":"voz / teclados"},
-  {"person":"jeremy-toback","band":"brad","from":1992,"to":1997,"status":"former","role":"bajo"},
-  {"person":"mike-berg","band":"brad","from":1997,"to":2005,"status":"former","role":"bajo"},
-  {"person":"keith-lowe","band":"brad","from":2008,"to":null,"status":"current","role":"bajo"},
-  {"person":"happy-chichester","band":"brad","from":2010,"to":null,"status":"current","role":"guitarra / teclados / coros"},
-  {"person":"chris-cornell","band":"audioslave","from":2001,"to":2007,"status":"former","role":"voz"},
-  {"person":"tom-morello","band":"audioslave","from":2001,"to":2007,"status":"former","role":"guitarra"},
-  {"person":"tim-commerford","band":"audioslave","from":2001,"to":2007,"status":"former","role":"bajo / coros"},
-  {"person":"brad-wilk","band":"audioslave","from":2001,"to":2007,"status":"former","role":"batería"}
+  {"person":"stone-gossard","band":"brad","from":1992,"to":null,"status":"current","role":"guitar"},
+  {"person":"regan-hagar","band":"brad","from":1992,"to":null,"status":"current","role":"drums"},
+  {"person":"shawn-smith","band":"brad","from":1992,"to":2019,"status":"former","role":"vocals / keyboards"},
+  {"person":"jeremy-toback","band":"brad","from":1992,"to":1997,"status":"former","role":"bass"},
+  {"person":"mike-berg","band":"brad","from":1997,"to":2005,"status":"former","role":"bass"},
+  {"person":"keith-lowe","band":"brad","from":2008,"to":null,"status":"current","role":"bass"},
+  {"person":"happy-chichester","band":"brad","from":2010,"to":null,"status":"current","role":"guitar / keyboards / backing vocals"},
+  {"person":"chris-cornell","band":"audioslave","from":2001,"to":2007,"status":"former","role":"vocals"},
+  {"person":"tom-morello","band":"audioslave","from":2001,"to":2007,"status":"former","role":"guitar"},
+  {"person":"tim-commerford","band":"audioslave","from":2001,"to":2007,"status":"former","role":"bass / backing vocals"},
+  {"person":"brad-wilk","band":"audioslave","from":2001,"to":2007,"status":"former","role":"drums"}
 ]
