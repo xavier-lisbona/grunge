@@ -8,4 +8,6 @@
   {"id":"tacoma","name":"Tacoma","country":"United States"}
 ,
   {"id":"glendale","name":"Glendale","country":"United States"}
+,
+{"id":"chicago","name":"Chicago","country":"United States","source":"https://en.wikipedia.org/wiki/The_Smashing_Pumpkins"}
 ]

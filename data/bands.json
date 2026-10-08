@@ -124,4 +124,9 @@
 ,
 {"id":"the-fire-theft","name":"The Fire Theft","city":"seattle","from":2001,"to":2004,"source":"https://en.wikipedia.org/wiki/The_Fire_Theft"},
   {"id":"rage-against-the-machine","name":"Rage Against the Machine","city":"los-angeles","from":1991,"to":2024,"periods":[{"from":1991,"to":2000},{"from":2007,"to":2011},{"from":2019,"to":2024}],"source":"https://en.wikipedia.org/wiki/Rage_Against_the_Machine"}
+,
+{"id":"smashing-pumpkins","name":"The Smashing Pumpkins","city":"chicago","from":1988,"to":null,"periods":[{"from":1988,"to":2000},{"from":2006,"to":null}],"source":"https://en.wikipedia.org/wiki/The_Smashing_Pumpkins"},
+  {"id":"a-perfect-circle","name":"A Perfect Circle","city":"los-angeles","from":1999,"to":null,"periods":[{"from":1999,"to":2004},{"from":2010,"to":null}],"source":"https://en.wikipedia.org/wiki/A_Perfect_Circle"},
+  {"id":"tool","name":"Tool","city":"los-angeles","from":1990,"to":null,"source":"https://en.wikipedia.org/wiki/Tool_(band)"},
+  {"id":"puscifer","name":"Puscifer","city":"los-angeles","from":2003,"to":null,"source":"https://en.wikipedia.org/wiki/Puscifer"}
 ]

@@ -98,4 +98,21 @@
   {"id":"brad-wilk","name":"Brad Wilk"}
 ,
 {"id":"zack-de-la-rocha","name":"Zack de la Rocha"}
+,
+{"id":"billy-corgan","name":"Billy Corgan"},
+  {"id":"james-iha","name":"James Iha"},
+  {"id":"darcy-wretzky","name":"D'arcy Wretzky"},
+  {"id":"jimmy-chamberlin","name":"Jimmy Chamberlin"},
+  {"id":"maynard-james-keenan","name":"Maynard James Keenan"},
+  {"id":"billy-howerdel","name":"Billy Howerdel"},
+
+  {"id":"paz-lenchantin","name":"Paz Lenchantin"},
+  {"id":"troy-van-leeuwen","name":"Troy Van Leeuwen"},
+  {"id":"tim-alexander","name":"Tim Alexander"},
+  {"id":"adam-jones","name":"Adam Jones"},
+  {"id":"danny-carey","name":"Danny Carey"},
+  {"id":"justin-chancellor","name":"Justin Chancellor"},
+  {"id":"paul-damour","name":"Paul D'Amour"},
+  {"id":"carina-round","name":"Carina Round"},
+  {"id":"mat-mitchell","name":"Mat Mitchell"}
 ]
