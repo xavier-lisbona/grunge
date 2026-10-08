@@ -121,4 +121,7 @@
 ,
   {"id":"brad","name":"Brad","city":"seattle","from":1992,"to":null,"source":"https://en.wikipedia.org/wiki/Brad_(band)"},
   {"id":"audioslave","name":"Audioslave","city":"glendale","from":2001,"to":2007,"reunion":2017,"source":"https://en.wikipedia.org/wiki/Audioslave"}
+,
+{"id":"the-fire-theft","name":"The Fire Theft","city":"seattle","from":2001,"to":2004,"source":"https://en.wikipedia.org/wiki/The_Fire_Theft"},
+  {"id":"rage-against-the-machine","name":"Rage Against the Machine","city":"los-angeles","from":1991,"to":2024,"periods":[{"from":1991,"to":2000},{"from":2007,"to":2011},{"from":2019,"to":2024}],"source":"https://en.wikipedia.org/wiki/Rage_Against_the_Machine"}
 ]
