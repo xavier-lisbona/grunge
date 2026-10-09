@@ -129,4 +129,9 @@
   {"id":"a-perfect-circle","name":"A Perfect Circle","city":"los-angeles","from":1999,"to":null,"periods":[{"from":1999,"to":2004},{"from":2010,"to":null}],"source":"https://en.wikipedia.org/wiki/A_Perfect_Circle"},
   {"id":"tool","name":"Tool","city":"los-angeles","from":1990,"to":null,"source":"https://en.wikipedia.org/wiki/Tool_(band)"},
   {"id":"puscifer","name":"Puscifer","city":"los-angeles","from":2003,"to":null,"source":"https://en.wikipedia.org/wiki/Puscifer"}
+,
+{"id":"stone-temple-pilots","name":"Stone Temple Pilots","city":"san-diego","from":1989,"to":null,"periods":[{"from":1989,"to":2003},{"from":2008,"to":null}],"source":"https://en.wikipedia.org/wiki/Stone_Temple_Pilots"},
+  {"id":"velvet-revolver","name":"Velvet Revolver","city":"rancho-santa-margarita","from":2002,"to":2008,"periods":[{"from":2002,"to":2008},{"from":2010,"to":2010},{"from":2012,"to":2012}],"source":"https://en.wikipedia.org/wiki/Velvet_Revolver"},
+  {"id":"army-of-anyone","name":"Army of Anyone","city":"los-angeles","from":2005,"to":2007,"source":"https://en.wikipedia.org/wiki/Army_of_Anyone"},
+  {"id":"filter","name":"Filter","city":"cleveland","from":1993,"to":null,"source":"https://en.wikipedia.org/wiki/Filter_(band)"}
 ]

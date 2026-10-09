@@ -10,4 +10,8 @@
   {"id":"glendale","name":"Glendale","country":"United States"}
 ,
 {"id":"chicago","name":"Chicago","country":"United States","source":"https://en.wikipedia.org/wiki/The_Smashing_Pumpkins"}
+,
+{"id":"san-diego","name":"San Diego","country":"United States","source":"https://en.wikipedia.org/wiki/Stone_Temple_Pilots"},
+  {"id":"rancho-santa-margarita","name":"Rancho Santa Margarita","country":"United States","source":"https://en.wikipedia.org/wiki/Velvet_Revolver"},
+  {"id":"cleveland","name":"Cleveland","country":"United States","source":"https://en.wikipedia.org/wiki/Filter_(band)"}
 ]
