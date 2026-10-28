@@ -176,4 +176,13 @@
   {"person":"jonny-radtke","band":"filter","from":2011,"to":null,"status":"current","role":"guitar / backing vocals"},
   {"person":"bobby-miller","band":"filter","from":2014,"to":null,"status":"current","role":"bass / keyboards / programming"},
   {"person":"elias-mallin","band":"filter","from":2022,"to":null,"status":"current","role":"drums"}
+,
+{"person":"charlie-campbell","band":"pond-portland","from":1991,"to":1998,"status":"former","role":"guitar / vocals"},
+  {"person":"chris-brady","band":"pond-portland","from":1991,"to":1998,"status":"former","role":"bass / vocals"},
+  {"person":"david-triebwasser","band":"pond-portland","from":1991,"to":1998,"status":"former","role":"drums"},
+  {"person":"chris-brady","band":"audio-learning-center","from":1998,"to":2004,"status":"former","role":"bass / vocals"},
+  {"person":"steven-birch","band":"audio-learning-center","from":1998,"to":2004,"status":"former","role":"guitar / backing vocals"},
+  {"person":"paul-johnson","band":"audio-learning-center","from":1998,"to":2004,"status":"former","role":"drums"}
+,
+  {"person":"charlie-campbell","band":"goldcard","from":1995,"to":2003,"status":"former","role":"primary artist"}
 ]

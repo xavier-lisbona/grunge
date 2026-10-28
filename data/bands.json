@@ -134,4 +134,9 @@
   {"id":"velvet-revolver","name":"Velvet Revolver","city":"rancho-santa-margarita","from":2002,"to":2008,"periods":[{"from":2002,"to":2008},{"from":2010,"to":2010},{"from":2012,"to":2012}],"source":"https://en.wikipedia.org/wiki/Velvet_Revolver"},
   {"id":"army-of-anyone","name":"Army of Anyone","city":"los-angeles","from":2005,"to":2007,"source":"https://en.wikipedia.org/wiki/Army_of_Anyone"},
   {"id":"filter","name":"Filter","city":"cleveland","from":1993,"to":null,"source":"https://en.wikipedia.org/wiki/Filter_(band)"}
+,
+{"id":"pond-portland","name":"Pond","city":"portland","from":1991,"to":1998,"periods":[{"from":1991,"to":1998},{"from":2010,"to":2010}],"source":"https://en.wikipedia.org/wiki/Pond_(American_band)"},
+  {"id":"audio-learning-center","name":"Audio Learning Center","city":"portland","from":1998,"to":2004,"source":"https://en.wikipedia.org/wiki/Audio_Learning_Center"}
+,
+  {"id":"goldcard","name":"Goldcard","city":"portland","from":1995,"to":2003,"source":"https://www.allmusic.com/artist/goldcard-mn0001380405"}
 ]
